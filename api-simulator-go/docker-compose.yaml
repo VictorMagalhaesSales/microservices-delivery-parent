@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  api-simulator-go:
+    build: .
+    container_name: api-simulator-go
+    volumes:
+      - .:/go/src/
+    extra_hosts:
+      - "host.docker.internal:172.17.0.1"
