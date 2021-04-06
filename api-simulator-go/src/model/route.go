@@ -1,4 +1,4 @@
-package route
+package model
 
 import (
 	"bufio"
@@ -28,6 +28,11 @@ type PartialRoutePosition struct {
 	ClientID string    `json:"clientId"`
 	Position []float64 `json:"position"`
 	Finished bool      `json:"finished"`
+}
+
+// NewRoute creates a *Route struct
+func NewRoute() *Route {
+	return &Route{}
 }
 
 // LoadPositions loads from a .txt file all positions (lat and long) to the Position attribute of the struct
