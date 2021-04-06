@@ -1,9 +1,10 @@
 package kafka
 
 import (
-	ckafka "github.com/confluentinc/confluent-kafka-go/kafka"
 	"log"
 	"os"
+
+	ckafka "github.com/confluentinc/confluent-kafka-go/kafka"
 )
 
 // NewKafkaProducer creates a ready to go kafka.Producer instance

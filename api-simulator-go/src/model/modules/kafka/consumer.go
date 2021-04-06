@@ -1,8 +1,11 @@
 package kafka
 
 import (
-	ckafka "github.com/confluentinc/confluent-kafka-go/kafka",
+	"fmt"
+	"log"
 	"os"
+
+	ckafka "github.com/confluentinc/confluent-kafka-go/kafka"
 )
 
 // KafkaConsumer holds all consumer logic and settings of Apache Kafka connections/
@@ -32,9 +35,9 @@ func (k *KafkaConsumer) Consume() {
 	topics := []string{os.Getenv("KafkaReadTopic")}
 	consumer.SubscribeTopics(topics, nil)
 	fmt.Println("Kafka consumer has been started")
-	
+
 	for {
-		msg, err = consumer.ReadMessage(-1)
+		msg, err := consumer.ReadMessage(-1)
 		if err == nil {
 			// Joga a mensagem para esse canal que pode ser acessado em outro ponto da aplicação
 			k.MsgChan <- msg
