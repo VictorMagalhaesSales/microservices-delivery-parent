@@ -4,7 +4,7 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
 import { MongooseModule } from '@nestjs/mongoose';
 import { RoutesController } from './controllers/routes.controller';
 import { Route, RouteSchema } from './entities/route.entity';
-import { RoutesGateway } from './gateways/routes.gateway';
+import { RoutesGateway } from './websocket/routes.gateway';
 import { RoutesService } from './services/routes.service';
 
 @Module({

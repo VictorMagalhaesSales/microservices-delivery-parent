@@ -14,7 +14,7 @@ import { CreateRouteDto } from '../entities/dto/create-route.dto';
 import { UpdateRouteDto } from '../entities/dto/update-route.dto';
 import { ClientKafka, MessagePattern, Payload } from '@nestjs/microservices';
 import { Producer } from '@nestjs/microservices/external/kafka.interface';
-import { RoutesGateway } from '../gateways/routes.gateway';
+import { RoutesGateway } from '../websocket/routes.gateway';
 
 @Controller('routes')
 export class RoutesController implements OnModuleInit {
