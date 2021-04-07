@@ -16,12 +16,12 @@ export class RoutesGateway implements OnModuleInit {
   server: Server;
 
   constructor(
-    /*@Inject('KAFKA_SERVICE')
-    private kafkaClient: ClientKafka,*/
+    @Inject('KAFKA_SERVICE')
+    private kafkaClient: ClientKafka,
   ) {}
 
   async onModuleInit() {
-    //this.kafkaProducer = await this.kafkaClient.connect();
+    this.kafkaProducer = await this.kafkaClient.connect();
   }
 
   @SubscribeMessage('new-direction')
