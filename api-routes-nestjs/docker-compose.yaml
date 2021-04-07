@@ -5,6 +5,7 @@ services:
   api-routes:
     build: .
     entrypoint: ./.docker/entrypoint.sh
+    container_name: api-routes
     ports: 
       - 3000:3000
     volumes:
@@ -12,10 +13,15 @@ services:
     depends_on:
       - db-routes
     mem_limit: 100m
+    extra_hosts:
+      - "host.docker.internal:172.17.0.1"
   
   db-routes:
     image: mongo:4.4.4
     restart: always
+    container_name: db-routes
+    ports:
+      - 27017:27017
     volumes:
       - ./.docker/dbdata:/data/db
       - ./.docker/mongo:/docker-entrypoint-initdb.d
@@ -24,6 +30,8 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=root
       - MONGO_INITDB_DATABASE=nest
     mem_limit: 100m
+    extra_hosts:
+      - "host.docker.internal:172.17.0.1"
   
   mongo-express:
     image: mongo-express
