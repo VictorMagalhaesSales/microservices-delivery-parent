@@ -11,6 +11,7 @@ services:
       - .:/home/node/app
     depends_on:
       - db-routes
+    mem_limit: 100m
   
   db-routes:
     image: mongo:4.4.4
@@ -22,6 +23,7 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=root
       - MONGO_INITDB_ROOT_PASSWORD=root
       - MONGO_INITDB_DATABASE=nest
+    mem_limit: 100m
   
   mongo-express:
     image: mongo-express
@@ -29,10 +31,11 @@ services:
     ports:
       - 8081:8081
     environment:
-      - ME_CONFIG_MONGODB_SERVER=db
+      - ME_CONFIG_MONGODB_SERVER=db-routes
       - ME_CONFIG_MONGODB_AUTH_USERNAME=root
       - ME_CONFIG_MONGODB_AUTH_PASSWORD=root
       - ME_CONFIG_MONGODB_ADMINUSERNAME=root
       - ME_CONFIG_MONGODB_ADMINPASSWORD=root
     depends_on:
       - db-routes
+    mem_limit: 100m
