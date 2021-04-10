@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  
+  ui-delivery-react:
+    build: .
+    entrypoint: ./.docker/entrypoint.sh
+    container_name: ui-delivery-react
+    ports: 
+      - 3001:3000
+    volumes:
+      - .:/home/node/app
+    mem_limit: 100m

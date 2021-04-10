@@ -1,6 +1,19 @@
 version: "3"
 
 services:  
+
+  ui-delivery-react:
+    build: .
+    entrypoint: ./ui-delivery-react/.docker/entrypoint.sh
+    container_name: ui-delivery-reac
+    ports: 
+      - 3001:3000
+    volumes:
+      - ./ui-delivery-react/.:/home/node/app
+    mem_limit: 100m
+      
+  # API-SIMULATOR-GO CONTAINERS
+
   api-simulator-go:
     build: ./api-simulator-go/.
     container_name: api-simulator-go
@@ -46,3 +59,51 @@ services:
         "sleep 5s &&
         kafka-topics --create --topic=route.new-direction --if-not-exists --bootstrap-server=kafka:9092 &&
         kafka-topics --create --topic=route.new-position --if-not-exists --bootstrap-server=kafka:9092"
+
+  # API-ROUTES-NESTJS CONTAINERS
+  
+  api-routes-nestjs:
+    build: .
+    entrypoint: ./api-routes-nestjs/.docker/entrypoint.sh
+    container_name: api-routes-nestjs
+    ports: 
+      - 3000:3000
+    volumes:
+      - ./api-routes-nestjs/.:/home/node/app
+    depends_on:
+      - db-routes
+    mem_limit: 100m
+    extra_hosts:
+      - "host.docker.internal:172.17.0.1"
+  
+  db-routes:
+    image: mongo:4.4.4
+    restart: always
+    container_name: db-routes
+    ports:
+      - 27017:27017
+    volumes:
+      - ./api-routes-nestjs/.docker/dbdata:/data/db
+      - ./api-routes-nestjs/.docker/mongo:/docker-entrypoint-initdb.d
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+      - MONGO_INITDB_DATABASE=nest
+    mem_limit: 100m
+    extra_hosts:
+      - "host.docker.internal:172.17.0.1"
+  
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=db-routes
+      - ME_CONFIG_MONGODB_AUTH_USERNAME=root
+      - ME_CONFIG_MONGODB_AUTH_PASSWORD=root
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=root
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=root
+    depends_on:
+      - db-routes
+    mem_limit: 100m
