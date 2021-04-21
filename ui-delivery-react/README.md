@@ -1,11 +1,11 @@
 
-## ui-delivery-react
+# ui-delivery-react
 Microservice frontend que consome a aplicação feita em NestJS para as suas devidas operações.
 
-# Bibliotecas utilizadas
+## Bibliotecas utilizadas
 - **socket.io-client**: integração com WebSockets;
 
-# Rodando a aplicação:
+## Rodando a aplicação:
 ```bash
 npm start
 # or
