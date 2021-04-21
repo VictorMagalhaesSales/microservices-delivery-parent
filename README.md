@@ -15,11 +15,11 @@ Parent de microserviços feitos em Go, NextJS/React e NestJS. Tecnologias usadas
 ### Apache Kafka
 - Utilizamos o projeto **control-center** para visualizar e gerenciar as ferramentas do Kafka.
 - Existem 2 tópicos no fluxo da aplicação:
-    - **route.new-direction**: recebe a notificação de um direcionamento para uma nova corrida do **NestJS** e consumido pelo **Go**.
-    - **route.new_position**: recebe a notificação das posições em tempo real do microservice **Go**.
+    - `route.new-direction`: recebe a notificação de um direcionamento para uma nova corrida do **NestJS** e consumido pelo **Go**.
+    - `route.new_position`: recebe a notificação das posições em tempo real do microservice **Go**.
 
 ### WebSocket
-- Os microservices em React e Nestjs se comunicam trafegando as rotas através de WebSocke.t
+- Os microservices em React e Nestjs se comunicam trafegando as rotas através de WebSocket.
 
 ### Kafka Connect
 - Trabalharemos com um **connector** do tipo **sync** para inserir os dados no banco de dados **Elasticsearch**.

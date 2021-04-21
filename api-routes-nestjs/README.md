@@ -1,4 +1,4 @@
-# api-bank-nestjs
+# Routes NestJS API
 Microservice feito em NestJS.
 
 ## Bibliotecas
@@ -11,10 +11,10 @@ Microservice feito em NestJS.
 - Ainda em **[routes.controler.ts](https://github.com/VictorMagalhaesSales/microservices-delivery-parent/blob/master/api-routes-nestjs/src/controllers/routes.controller.ts)**, é consumido o tópico `route.new-position`, recebendo os valores das rotas vindas do **microservice Go**.
 
 ## WebSocket
-- Ao receber as rotas do kafka, as mesmas são enviadas para o React através com websocket em **[routes.gateway.ts](https://github.com/VictorMagalhaesSales/microservices-delivery-parent/blob/master/api-routes-nestjs/src/websocket/routes.gateway.ts)**.
+- Ao receber as rotas do kafka, as mesmas são enviadas para o React através de websocket em **[routes.gateway.ts](https://github.com/VictorMagalhaesSales/microservices-delivery-parent/blob/master/api-routes-nestjs/src/websocket/routes.gateway.ts)**.
 
 
-## Running the app
+## Rodando a aplicação
 ```bash
 # Install dependencies
 $ npm install
