@@ -10,9 +10,7 @@ Parent de microserviços feitos em Go, NextJS/React e NestJS. Tecnologias usadas
 # Comunicação
 
 ### Fluxo:
-
-- **React** ==[**WEBSOCKET**:INICIAR_ROTA]==> **NestJS** ==[**KAFKA**:INICIA_ROTA]==> **Golang** ==[**KAFKA**:ENVIA_POSIÇÕES]==> **NestJS** ==[**WEBSOCKET**:ENVIA_POSIÇÕES]==> **React**
-
+![Fluxo microservice](https://i.ibb.co/yhRR4QR/Screenshot-1.png)
 ### Apache Kafka
 - Utilizamos o projeto **control-center** para visualizar e gerenciar as ferramentas do Kafka.
 - Existem 2 tópicos no fluxo da aplicação:
