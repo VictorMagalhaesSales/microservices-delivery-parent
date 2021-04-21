@@ -10,7 +10,8 @@ Parent de microserviços feitos em Go, NextJS/React e NestJS. Tecnologias usadas
 # Comunicação
 
 ### Fluxo:
-- **React** ==[COMANDO_DE_INICIAR_ROTA]==> **NestJS** ==[INICIA_ROTA]==> **Golang** ==[ENVIA_POSIÇÕES]==> **NestJS** ==[ENVIA_POSIÇÕES]==> **React**
+
+- **React** ==[**WEBSOCKET**:INICIAR_ROTA]==> **NestJS** ==[**KAFKA**:INICIA_ROTA]==> **Golang** ==[**KAFKA**:ENVIA_POSIÇÕES]==> **NestJS** ==[**WEBSOCKET**:ENVIA_POSIÇÕES]==> **React**
 
 ### Apache Kafka
 - Utilizamos o projeto **control-center** para visualizar e gerenciar as ferramentas do Kafka.
