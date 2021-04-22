@@ -1,7 +1,7 @@
 package main
 
 import (
-	"api-simulator/src/model/modules/kafka"
+	"api-simulator/src/modules/kafka"
 	"api-simulator/src/services"
 	"fmt"
 	"log"

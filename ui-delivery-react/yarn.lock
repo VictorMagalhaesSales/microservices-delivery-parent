@@ -6412,7 +6412,17 @@
   dependencies:
     "is-docker" "^2.0.0"
 
-"isarray@^1.0.0", "isarray@~1.0.0", "isarray@1.0.0":
+"isarray@^1.0.0":
+  "integrity" "sha1-u5NdSFgsuhaMBoNJV6VKPgcSTxE="
+  "resolved" "https://registry.npmjs.org/isarray/-/isarray-1.0.0.tgz"
+  "version" "1.0.0"
+
+"isarray@~1.0.0":
+  "integrity" "sha1-u5NdSFgsuhaMBoNJV6VKPgcSTxE="
+  "resolved" "https://registry.npmjs.org/isarray/-/isarray-1.0.0.tgz"
+  "version" "1.0.0"
+
+"isarray@1.0.0":
   "integrity" "sha1-u5NdSFgsuhaMBoNJV6VKPgcSTxE="
   "resolved" "https://registry.npmjs.org/isarray/-/isarray-1.0.0.tgz"
   "version" "1.0.0"

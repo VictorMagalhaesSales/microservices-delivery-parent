@@ -15,6 +15,7 @@ services:
   # ===== API-SIMULATOR-GO CONTAINER =====
   api-simulator-go:
     build: ./api-simulator-go/.
+    command: bash -c "go run main.go"
     container_name: api-simulator-go
     volumes:
       - ./api-simulator-go/.:/go/src/

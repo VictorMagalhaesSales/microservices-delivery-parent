@@ -8,6 +8,7 @@ import { colors, getCurrentPosition, makeCarIcon, makeMarkerIcon } from '../util
 import { Route } from '../utils/interfaces';
 import { Map, RouteExistsError } from '../utils/map.model';
 import { Navbar } from './Navbar';
+import io from "socket.io-client";
 
 const googleMapsLoader = new Loader(process.env.REACT_APP_GOOGLE_API_KEY);
 const API_URL = process.env.REACT_APP_API_URL as string;
@@ -38,7 +39,7 @@ export const Mapping = () => {
         }
     
         const handler = (data: {
-          routeId: number;
+          routeId: string;
           position: [number, number];
           finished: boolean;
         }) => {
@@ -77,7 +78,7 @@ export const Mapping = () => {
 
     const startRoute = useCallback((event: FormEvent): void => {
         event.preventDefault();
-        const route = routes.find((route) => route._id === +routeIdSelected);
+        const route = routes.find((route) => route._id === routeIdSelected);
         const color = sample(shuffle(colors)) as string; // Pega uma cor aleatoriamente
         if (route == null) {
             enqueueSnackbar(`Rota não encontrada`, {variant: "error"});

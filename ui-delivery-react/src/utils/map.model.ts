@@ -2,22 +2,22 @@ import { Route } from "./route.model";
 
 export class Map {
     public map: google.maps.Map;
-    private routes: { [id: number]: Route } = {};
+    private routes: { [id: string]: Route } = {};
     constructor(element: Element, options: google.maps.MapOptions) {
       this.map = new google.maps.Map(element, options);
     }
   
-    moveCurrentMarker(id: number, position: google.maps.LatLngLiteral) {
+    moveCurrentMarker(id: string, position: google.maps.LatLngLiteral) {
       this.routes[id].currentMarker.setPosition(position);
     }
   
-    removeRoute(id: number) {
+    removeRoute(id: string) {
       const route = this.routes[id];
       route.delete();
       delete this.routes[id];
     }
   
-    addRoute(id: number, routeOptions: {
+    addRoute(id: string, routeOptions: {
         currentMarkerOptions: google.maps.ReadonlyMarkerOptions;
         endMarkerOptions: google.maps.ReadonlyMarkerOptions;
     }) {

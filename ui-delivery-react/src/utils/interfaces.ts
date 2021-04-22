@@ -3,7 +3,7 @@ export interface Position {
   lng: number;
 }
 export interface Route {
-  _id: number;
+  _id: string;
   title: string;
   startPosition: Position;
   endPosition: Position;
