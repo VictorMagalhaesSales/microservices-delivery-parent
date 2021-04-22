@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: simulator-conf
+data:
+  env: |
+    KafkaReadTopic=route.new-direction
+    KafkaProduceTopic=route.new-position
+    KafkaBootstrapServers=localhost:9094
+    KafkaConsumerGroupId=api-simulator-go

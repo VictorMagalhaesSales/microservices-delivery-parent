@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-conf
+data:
+  env: |
+    MONGO_DSN=mongodb://root:root@mongodb/nest?authSource=admin
+    KAFKA_CLIENT_ID=api-routes-nestjs
+    KAFKA_BROKER=localhost:9094
+    KAFKA_CONSUMER_GROUP_ID=api-routes-nestjs
