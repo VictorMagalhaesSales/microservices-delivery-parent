@@ -91,7 +91,7 @@ export const Mapping = () => {
 
     const iniciarRota = (route: Route, color: string) => {
         try {
-            mapRef.current?.addRoute(+routeIdSelected, {
+            mapRef.current?.addRoute(routeIdSelected, {
                 currentMarkerOptions: {
                   position: route?.startPosition,
                   icon: makeCarIcon(color),

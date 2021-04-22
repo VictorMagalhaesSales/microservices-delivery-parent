@@ -1,0 +1,20 @@
+FROM node:12.19.0-alpine3.9 AS build-stage
+LABEL MAINTAINER=victormagalhaessales@gmail.com
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+
+RUN npm install -g react-scripts@4.0.3
+RUN npm install
+
+COPY . .
+
+RUN npm run build
+
+FROM nginx:1.15 as prod-stage
+
+EXPOSE 3001
+
+COPY --from=build-stage /usr/src/app/build/ /usr/share/nginx/html
+COPY --from=build-stage /usr/src/app/nginx.conf /etc/nginx/conf.d/default.conf
