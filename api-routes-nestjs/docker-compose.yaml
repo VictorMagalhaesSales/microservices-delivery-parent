@@ -2,10 +2,10 @@ version: '3'
 
 services:
   
-  api-routes:
-    build: .
+  api-routes-nestjs:
+    image: victormagalhaes/api-routes-nestjs
     entrypoint: ./.docker/entrypoint.sh
-    container_name: api-routes
+    container_name: api-routes-nestjs
     ports: 
       - 3000:3000
     volumes:
@@ -35,6 +35,7 @@ services:
   
   mongo-express:
     image: mongo-express
+    container_name: mongo-express
     restart: always
     ports:
       - 8081:8081
