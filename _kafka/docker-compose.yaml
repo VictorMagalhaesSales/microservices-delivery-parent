@@ -107,11 +107,9 @@ services:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.11.2
     container_name: es01
     environment:
-      - node.name=es01
-      - cluster.name=es-docker-cluster
-      - cluster.initial_master_nodes=es01
-      - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - ES_JAVA_OPTS=-Xms1g -Xmx1g
     ulimits:
       memlock:
         soft: -1
