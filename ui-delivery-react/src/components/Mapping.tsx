@@ -45,8 +45,8 @@ export const Mapping = () => {
         }) => {
           console.log(data);
           mapRef.current?.moveCurrentMarker(data.routeId, {
-            lat: data.position[0],
-            lng: data.position[1],
+            lat: data.position[1],
+            lng: data.position[0],
           });
           const route = routes.find((route) => route._id === data.routeId) as Route;
           if (data.finished) {

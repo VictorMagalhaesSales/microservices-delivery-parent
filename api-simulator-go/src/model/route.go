@@ -53,11 +53,11 @@ func (r *Route) LoadPositions() error {
 	// Permite ler linha por linha do 'file'
 	for scanner.Scan() {
 		data := strings.Split(scanner.Text(), ",")
-		lat, err := strconv.ParseFloat(data[0], 64)
+		lat, err := strconv.ParseFloat(data[1], 64)
 		if err != nil {
 			return nil
 		}
-		long, err := strconv.ParseFloat(data[1], 64)
+		long, err := strconv.ParseFloat(data[0], 64)
 		if err != nil {
 			return nil
 		}
