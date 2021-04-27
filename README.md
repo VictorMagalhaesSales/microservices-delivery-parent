@@ -1,16 +1,12 @@
 # microservice-delivery-parent
-Parent de microserviços feitos em Go, NextJS/React e NestJS. Tecnologias usadas: Docker, Apache Kafka, ElasticSearch, Kibana, Kubernetes, Istio, Kiali, Prometheus e Grafana.
-
-# Microservices
 
 - UI Delivert(**React**) - **[Documentation](https://github.com/VictorMagalhaesSales/microservices-delivery-parent/tree/master/ui-delivery-react/README.md)**
 - API Routes(**NestJS**) - **[Documentation](https://github.com/VictorMagalhaesSales/microservices-delivery-parent/tree/master/api-routes-nestjs/README.md)**
 - API Simulator(**Golang**) - **[Documentation](https://github.com/VictorMagalhaesSales/microservices-delivery-parent/tree/master/api-simulator-go/README.md)**
 
-# Comunicação
+![Resumo](https://i.ibb.co/SJNJMz9/sumary.png)
 
-### Fluxo:
-![Fluxo microservice](https://i.ibb.co/P6XvKWK/Screenshot-2.png)
+# Comunicação
 ### Apache Kafka
 - Utilizamos o projeto **control-center** para visualizar e gerenciar as ferramentas do Kafka.
 - Existem 2 tópicos no fluxo da aplicação:
