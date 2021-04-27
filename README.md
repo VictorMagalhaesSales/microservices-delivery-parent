@@ -22,9 +22,8 @@ Parent de microserviços feitos em Go, NextJS/React e NestJS. Tecnologias usadas
 
 ### Kafka Connect
 - Trabalharemos com um **connector** do tipo **sync** para inserir os dados no banco de dados **Elasticsearch**.
-- Configurações para a criação do connector Elasticsearch em [elasticsearch.properties](https://github.com/VictorMagalhaesSales/microservices-delivery-parent/tree/master/apache-kafka/elasticsearch.properties).
+- Configurações para a criação do connector Elasticsearch em [elasticsearch.properties](https://github.com/VictorMagalhaesSales/microservices-delivery-parent/tree/master/_kafka/elasticsearch.properties).
 
 ### ElasticSearch e Kibana
 - O Kafka cria um index para cada tópico criado `route.new_direction` e `route.new_position` no ElasticSearch.
-- No Kibana, criamos um **index pattern** para cada índexs e uma **visuailzação** de um dashboard com todos os dados integrados.
-
+- No kibana, realizamos configurações para criação da **dashboard de monitoramento** da aplicação: **[passo a passo](https://github.com/VictorMagalhaesSales/microservices-delivery-parent/tree/master/_kafka/README.md)**.

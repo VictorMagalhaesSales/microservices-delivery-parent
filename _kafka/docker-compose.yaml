@@ -103,12 +103,15 @@ services:
     extra_hosts:
       - "host.docker.internal:172.17.0.1"
 
-  es01:
+  elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.11.2
-    container_name: es01
+    container_name: elasticsearch
     environment:
-      - discovery.type=single-node
       - xpack.security.enabled=false
+      - node.name=es01
+      - cluster.name=es-docker-cluster
+      - cluster.initial_master_nodes=es01
+      - bootstrap.memory_lock=true
       - ES_JAVA_OPTS=-Xms1g -Xmx1g
     ulimits:
       memlock:
@@ -123,11 +126,24 @@ services:
 
   kibana:
     image: docker.elastic.co/kibana/kibana:7.11.2
-    container_name: kib01
+    container_name: kibana
     ports:
       - 5601:5601
     environment:
-      ELASTICSEARCH_URL: http://es01:9200
-      ELASTICSEARCH_HOSTS: '["http://es01:9200"]'
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+      ELASTICSEARCH_HOSTS: '["http://elasticsearch:9200"]'
     extra_hosts:
       - "host.docker.internal:172.17.0.1"
+
+
+      
+# === NOTAS ===
+
+# Para aumentar max_map_count
+  # wsl.exe -d docker-desktop
+  # sysctl -w vm.max_map_count=262144
+
+# Para resolver o problema de disco read-only:
+  # curl -XPUT -H "Content-Type: application/json" http://localhost:9200/_cluster/settings -d '{ "transient": { "cluster.routing.allocation.disk.threshold_enabled": false } }'
+  # curl -XPUT -H "Content-Type: application/json" http://localhost:9200/_all/_settings -d '{"index.blocks.read_only_allow_delete": null}'
+    
